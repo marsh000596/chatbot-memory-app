@@ -1,0 +1,13 @@
+version: "3.8"
+services:
+  chatbot:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./chatbot.db:/app/chatbot.db
+      - ./:/app
+    environment:
+      - DATABASE_URL=sqlite:///./chatbot.db
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - LLM_PROVIDER=openai

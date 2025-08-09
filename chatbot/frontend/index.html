@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Chatbot with Persistent Memory</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <h2>Conversations</h2>
+      <div id="conversations"></div>
+      <button id="new-conv">+ New Conversation</button>
+
+      <h3>Domain</h3>
+      <select id="domain-select">
+        <option value="">(none)</option>
+        <option value="customer_service">Customer Service</option>
+        <option value="healthcare">Healthcare</option>
+        <option value="finance">Finance</option>
+      </select>
+      <label class="switch">
+        <input type="checkbox" id="use-domain">
+        <span class="slider"></span>
+      </label>
+    </aside>
+
+    <main class="chat-panel">
+      <header class="chat-header">💬 Smart Assistant (Persistent)</header>
+      <div id="chat-window" class="chat-window"></div>
+      <div class="chat-controls">
+        <input id="message-input" type="text" placeholder="Type your message..." />
+        <button id="send">Send</button>
+      </div>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

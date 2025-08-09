@@ -1,0 +1,14 @@
+fastapi
+uvicorn[standard]
+sqlalchemy
+alembic
+pydantic
+python-dotenv
+requests
+transformers
+torch
+sentence-transformers
+faiss-cpu
+python-multipart
+gpt4all
+
