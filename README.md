@@ -21,30 +21,34 @@
    ```graphql
    chatbot-memory-app/
    │
-   ├── backend/
-   │   ├── app.py                 # FastAPI entrypoint (runs API)
-   │   ├── chatbot.py             # Chatbot logic + memory & domain selection
-   │   ├── database.py            # SQLAlchemy engine + session
-   │   ├── models.py              # DB models (Memory, DomainQA, Conversation)
-   │   ├── crud.py                # DB helper functions
-   │   ├── data_loader.py         # Utilities to bulk load domain Q&A into DB
-   │   ├── requirements.txt       # Python dependencies list
-   │   ├── Dockerfile             # Dockerfile to containerize backend
-   │   └── docker-compose.yml     # Docker compose config
+   ├── __init__.py
+   ├── app.py                 # FastAPI entrypoint (runs API)
+   ├── chatbot.py              # Chatbot logic + memory & domain selection
+   ├── database.py             # SQLAlchemy engine + session
+   ├── models.py               # DB models
+   ├── crud.py                 # DB helper functions
+   ├── data_loader.py          # Loads Q&A into DB
+   ├── requirements.txt
+   ├── Dockerfile
    │
    ├── frontend/
-   │   ├── index.html             # Webpage with chat UI
-   │   ├── style.css              # Stylesheet for frontend
-   │   └── script.js              # Frontend JavaScript to handle chat
+   │   ├── index.html
+   │   ├── style.css
+   │   ├── script.js
    │
-   ├── README.md                  # This file
-   └── .env.example               # Example environment variables file
+   ├── models/
+   │   └── gpt4all-model.bin       # Your offline GPT4All model file
+   │
+   ├── docker-compose.yml
+   ├── README.md
+   └── .env.example
+
 
 
 ## Setup Instructions
 1. Clone the repository
 ```bash
-git clone https://github.com/yourusername/chatbot-memory-app.git
+git clone https://github.com/marsh000596/chatbot-memory-app.git #once published, currently the files/folder can be downloaded manually
 cd chatbot-memory-app
 ```
 
@@ -60,6 +64,11 @@ GPT4ALL_MODEL=orca-mini-3b.ggmlv3.q4_0.bin
 DATABASE_URL=sqlite:///./chatbot.db
 EMBEDDING_MODEL=all-MiniLM-L6-v2
 OPENAI_API_KEY=             # leave empty if not using OpenAI
+```
+Also save a bin for local chatgpt in /models
+```
+wget https://gpt4all.io/models/ggml-gpt4all-j-v1.3-groovy.bin -O gpt4all-model.bin
+#or visit https://gpt4all.io/index.html?ref=top-ai-list and install gpt4all to get any of your choice
 ```
 
 3. Running with Docker Compose (recommended)
