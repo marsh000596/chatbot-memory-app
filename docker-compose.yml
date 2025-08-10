@@ -1,0 +1,13 @@
+version: "3.9"
+services:
+  chatbot-api:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./:/app
+      - ./models:/app/models 
+    environment:
+      - DATABASE_URL=sqlite:///./chatbot_memory.db
+      - GPT4ALL_MODEL_PATH=/app/models/mistral-7b-instruct-v0.1.Q4_0.gguf
+    restart: unless-stopped

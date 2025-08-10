@@ -1,0 +1,14 @@
+fastapi
+uvicorn[standard]
+sqlalchemy
+databases
+pydantic
+aiofiles
+httpx
+python-dotenv
+transformers
+sentence-transformers
+faiss-cpu
+gpt4all
+llama-cpp-python>=0.2.77 --prefer-binary
+
